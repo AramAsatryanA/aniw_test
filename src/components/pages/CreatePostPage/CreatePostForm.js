@@ -14,7 +14,6 @@ function CreatePostForm() {
   return (
     <form onSubmit={(event) => event.preventDefault()}>
       <div className="mb-6 flex flex-col gap-6 border-y border-custom-gray-300 py-6 dark:border-custom-black-300">
-        <input type="date" className="p-10" />
         <InputItem id="title" label="Title" type="text" placeholder="Title" />
         <TextareaItem
           id="descriptions"
