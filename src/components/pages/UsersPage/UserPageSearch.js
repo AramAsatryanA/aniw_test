@@ -4,7 +4,8 @@ import { useTheme } from "next-themes";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import Image from "next/image";
-import { usersSliceActions } from "@/store/users/usersSlice";
+
+import { searchUsers } from "@/store/users/usersSlice";
 
 function UserPageSearch() {
   const { theme } = useTheme();
@@ -18,7 +19,7 @@ function UserPageSearch() {
       .trim()
       .toLowerCase();
 
-    dispatch(usersSliceActions.searchUsers(enteredSearchQuery));
+    dispatch(searchUsers(enteredSearchQuery));
   }
 
   return (

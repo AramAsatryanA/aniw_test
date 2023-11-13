@@ -1,24 +1,15 @@
-function InputItem({ id, title, type, placeholder }) {
+function InputItem({ id, label, type, placeholder }) {
   return (
-    <div className="flex flex-col justify-between gap-2 lg:flex-row">
-      <label htmlFor={id} className="text-sm lg:pt-3">
-        {title}
+    <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
+      <label htmlFor={id} className="text-sm">
+        {label}
       </label>
-      {type === "textarea" ? (
-        <textarea
-          id={id}
-          rows={3}
-          placeholder={placeholder}
-          className="input-type lg:w-[492px]"
-        />
-      ) : (
-        <input
-          id={id}
-          type={type}
-          placeholder={placeholder}
-          className="input-type lg:w-[492px]"
-        />
-      )}
+      <input
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        className="input-type lg:w-[492px]"
+      />
     </div>
   );
 }

@@ -1,15 +1,12 @@
 import Image from "next/image";
 
 import { formatDate } from "@/utils/formatDate";
-import PostItemMenuBlock from "UI/PostItemMenu-Block/PostItemMenuBlock";
-import FileItemMenuBlock from "../FileItemMenu-Block/FileItemMenuBlock";
-import ModelItemMenuBlock from "../ModelItemMenu-Block/ModelItemMenuBlock";
 
-function ItemHeadingPart({ theme, avatar, author, date, time, itemType }) {
+function ItemHeadingPart({ avatar, author, date, time }) {
   const formattedDate = formatDate(date);
 
   return (
-    <div className="flex items-center gap-3 whitespace-nowrap text-sm">
+    <>
       <span className="inline-block h-6 w-6">
         <Image src={avatar} alt="User Avatar" width={250} height={250} />
       </span>
@@ -21,16 +18,7 @@ function ItemHeadingPart({ theme, avatar, author, date, time, itemType }) {
           </p>
         )}
       </div>
-      {itemType === "post" ? (
-        <PostItemMenuBlock theme={theme} />
-      ) : itemType === "file" ? (
-        <FileItemMenuBlock theme={theme} />
-      ) : itemType === "model" ? (
-        <ModelItemMenuBlock theme={theme} />
-      ) : (
-        ""
-      )}
-    </div>
+    </>
   );
 }
 

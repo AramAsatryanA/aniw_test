@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import AuthInputItem from "@/components/UI/CustomElements/AuthInputItem";
+
 function LoginResetPasswordPageContent() {
   return (
     <div className="authentication-card-type">
@@ -10,25 +12,20 @@ function LoginResetPasswordPageContent() {
           password.
         </p>
       </div>
-      <div className="flex flex-col gap-2">
-        <label className="text-sm" htmlFor="email">
-          Email
-        </label>
-        <input
-          placeholder="Email"
-          type="email"
-          id="email"
-          className="input-type"
-        />
-      </div>
+      <AuthInputItem
+        id="email"
+        label="Email"
+        type="email"
+        placeholder="Email"
+      />
       <Link href="/login/new-password" className="button-blue-type">
         Send
       </Link>
-      <div className="text-center text-sm">
+      <div className="text-center text-sm font-medium">
         Don’t have an account?{" "}
         <Link
           href="/sign-up"
-          className="text-custom-gray-700 transition-all hover:font-semibold"
+          className="text-custom-gray-700 transition-all hover:text-custom-gray-900"
         >
           Sign up{" "}
         </Link>

@@ -28,7 +28,7 @@ function ItemSharePart() {
         />
       </button>
       {showItemShareModal && (
-        <div className="modal-item-card-type absolute -left-[222px] top-10 z-[777] flex flex-col gap-6 px-4 lg:px-6 xl:left-0">
+        <div className="modal-item-card-type absolute -left-[267px] top-10 z-[777] flex flex-col gap-6 px-4 lg:left-0 lg:px-6">
           <button className="button-black-type">Copy link</button>
           <SocialMediaLinksBlock />
         </div>

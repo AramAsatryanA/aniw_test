@@ -6,10 +6,26 @@ function SettingsLocationPageContent() {
   return (
     <form onSubmit={(event) => event.preventDefault()}>
       <div className="flex flex-col gap-6 border-t border-custom-gray-300 pt-6 dark:border-custom-black-300">
-        <SelectItem title="Language" placeholder="English" />
-        <SelectItem title="Country" placeholder="Russia" />
-        <SelectItem title="State" placeholder="Moscow" />
-        <SelectItem title="City" placeholder="Moscow" />
+        <SelectItem
+          label="Language"
+          placeholder="English"
+          options={["Item 1", "Item 2", "Item 3", "Item 4"]}
+        />
+        <SelectItem
+          label="Country"
+          placeholder="Russia"
+          options={["Item 1", "Item 2", "Item 3", "Item 4"]}
+        />
+        <SelectItem
+          label="State"
+          placeholder="Moscow"
+          options={["Item 1", "Item 2", "Item 3", "Item 4"]}
+        />
+        <SelectItem
+          label="City"
+          placeholder="Moscow"
+          options={["Item 1", "Item 2", "Item 3", "Item 4"]}
+        />
       </div>
     </form>
   );

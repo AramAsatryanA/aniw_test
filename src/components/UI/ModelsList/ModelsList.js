@@ -8,7 +8,7 @@ function ModelsList() {
   const { models } = useSelector((state) => state.models);
 
   return (
-    <ul className="grid gap-4 xl:grid-cols-2">
+    <ul className="grid gap-4 2xl:grid-cols-2">
       {models.map((model) => (
         <li key={model.id}>
           <ModelsListItem modelItem={model} />

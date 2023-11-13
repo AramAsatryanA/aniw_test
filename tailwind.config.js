@@ -23,6 +23,9 @@ module.exports = {
         "custom-black-300": "#1F1F1F",
         "custom-black-500": "#141414",
       },
+      screens: {
+        "2xl": "1440px",
+      },
     },
   },
   plugins: [],

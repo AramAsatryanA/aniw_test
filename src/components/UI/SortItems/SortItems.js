@@ -19,7 +19,7 @@ function SortItems() {
   return (
     <div className="flex flex-col gap-1">
       <div
-        className="group flex cursor-pointer items-center justify-between rounded-xl border border-transparent bg-white px-6 py-5 transition-all dark:bg-custom-black-100 dark:hover:border-custom-gray-900"
+        className="group flex cursor-pointer items-center justify-between rounded-xl border border-transparent bg-white px-6 py-4 transition-all dark:bg-custom-black-100 dark:hover:border-custom-gray-900 lg:py-5"
         onClick={() => setShowSortOptions((prevState) => !prevState)}
       >
         <span className="text-sm font-semibold">Sort</span>

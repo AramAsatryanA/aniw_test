@@ -24,7 +24,7 @@ function ProfilePageLayout({ children }) {
     <>
       <Header />
       <main className="bg-custom-gray-100 dark:bg-custom-black-500">
-        <div className="container flex flex-col gap-6 px-5 pb-10 pt-6 lg:flex-row lg:justify-center lg:gap-[104px] xl:px-0">
+        <div className="container flex flex-col gap-6 px-5 pb-10 pt-6 md:flex-row md:justify-center md:gap-12 lg:gap-[104px] xl:px-0">
           <ProfilePageProfileSection />
           <section className="flex w-full max-w-[712px] flex-col gap-6">
             <PageNavigation navigationItems={pageNavigationItems} />

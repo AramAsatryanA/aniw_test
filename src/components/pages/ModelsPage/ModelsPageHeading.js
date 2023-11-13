@@ -3,7 +3,8 @@
 import { useSelector } from "react-redux";
 
 function ModelsPageHeading() {
-  const { categories, tags } = useSelector((state) => state.models);
+  const categories = useSelector((state) => state.categories);
+  const tags = useSelector((state) => state.tags);
 
   return (
     <div className="item-card-type flex flex-col gap-3">

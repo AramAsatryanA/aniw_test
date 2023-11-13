@@ -1,50 +1,37 @@
 import Link from "next/link";
 
+import AuthInputItem from "@/components/UI/CustomElements/AuthInputItem";
+
 function SignUpCredentialsPageContent() {
   return (
     <div className="authentication-card-type">
       <h1 className="text-center text-2xl font-semibold">Welcome to Aniw</h1>
-      <div className="flex flex-col gap-2">
-        <label className="text-sm" htmlFor="username">
-          Username
-        </label>
-        <input
-          placeholder="Username"
-          type="text"
-          id="username"
-          className="input-type"
-        />
-      </div>
-      <div className="flex flex-col gap-2">
-        <label className="text-sm" htmlFor="password">
-          Password
-        </label>
-        <input
-          placeholder="Password"
-          type="password"
-          id="password"
-          className="input-type"
-        />
-      </div>
-      <div className="flex flex-col gap-2">
-        <label className="text-sm" htmlFor="confirm-password">
-          Confirm password
-        </label>
-        <input
-          placeholder="Confirm password"
-          type="password"
-          id="confirm-password"
-          className="input-type"
-        />
-      </div>
+      <AuthInputItem
+        id="username"
+        label="Username"
+        type="text"
+        placeholder="Username"
+      />
+      <AuthInputItem
+        id="password"
+        label="Password"
+        type="password"
+        placeholder="Password"
+      />
+      <AuthInputItem
+        id="confirm-password"
+        label="Confirm password"
+        type="password"
+        placeholder="Confirm password"
+      />
       <Link href="/sign-up/user-info" className="button-blue-type">
         Continue
       </Link>
       <div className="text-center text-sm">
-        Already have an account?{" "}
+        <span className="font-medium">Already have an account?</span>{" "}
         <Link
           href="/login"
-          className="text-custom-gray-700 transition-all hover:font-semibold"
+          className="text-custom-gray-700 transition-all hover:text-custom-gray-900"
         >
           Log in
         </Link>

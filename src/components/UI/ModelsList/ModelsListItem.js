@@ -4,12 +4,12 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import Image from "next/image";
 
-import ItemHeadingPart from "@/components/UI/ItemCustomParts/ItemHeadingPart";
-import ItemCategoriesPart from "@/components/UI/ItemCustomParts/ItemCategoriesPart";
-import ItemLikesPart from "@/components/UI/ItemCustomParts/ItemLikesPart";
-import ItemDownloadsPart from "@/components/UI/ItemCustomParts/ItemDownloadsPart";
-import CommentItemLink from "UI/CommentItem-Link/CommentItemLink";
-import ItemSharePart from "@/components/UI/ItemCustomParts/ItemSharePart";
+import ItemHeadingPart from "UI/ItemCustomParts/ItemHeadingPart";
+import ModelItemMenuBlock from "UI/ModelItemMenu-Block/ModelItemMenuBlock";
+import ItemCategoriesPart from "UI/ItemCustomParts/ItemCategoriesPart";
+import ItemLikesPart from "UI/ItemCustomParts/ItemLikesPart";
+import ItemDownloadsPart from "UI/ItemCustomParts/ItemDownloadsPart";
+import ItemSharePart from "UI/ItemCustomParts/ItemSharePart";
 
 function ModelsListItem({ modelItem }) {
   const { theme } = useTheme();
@@ -23,18 +23,17 @@ function ModelsListItem({ modelItem }) {
     title,
     categories,
     likesNumber,
+    userVoteType,
     downloadsNumber,
     commentsNumber,
   } = modelItem;
 
   return (
     <div className="item-card-type flex flex-col gap-3">
-      <ItemHeadingPart
-        theme={theme}
-        avatar={avatar}
-        author={author}
-        itemType="model"
-      />
+      <div className="flex items-center gap-3 whitespace-nowrap text-sm">
+        <ItemHeadingPart avatar={avatar} author={author} />
+        <ModelItemMenuBlock theme={theme} />
+      </div>
       <div className="relative inline-block w-full">
         <Image
           src={image}
@@ -59,13 +58,30 @@ function ModelsListItem({ modelItem }) {
         <ItemCategoriesPart categories={categories} />
       </div>
       <div className="flex items-center gap-3">
-        <ItemLikesPart theme={theme} likesNumber={likesNumber} />
-        <ItemDownloadsPart theme={theme} downloadsNumber={downloadsNumber} />
-        <CommentItemLink
+        <ItemLikesPart
           theme={theme}
-          commentsNumber={commentsNumber}
-          pathName={`/3d-models/${id}#addComment`}
+          slice="models"
+          likesNumber={likesNumber}
+          userVoteType={userVoteType}
+          itemId={id}
         />
+        <ItemDownloadsPart theme={theme} downloadsNumber={downloadsNumber} />
+        <Link
+          href={`/3d-models/${id}#addComment`}
+          className="button-card-type flex items-center gap-2 rounded-3xl px-2 py-1"
+        >
+          <span className="inline-block h-6 w-6">
+            <Image
+              src={
+                theme === "dark" ? "/comment-dark.svg" : "/comment-light.svg"
+              }
+              alt="Comment Icon"
+              width={50}
+              height={50}
+            />
+          </span>
+          <span className="text-sm">{commentsNumber}</span>
+        </Link>
         <ItemSharePart />
       </div>
     </div>

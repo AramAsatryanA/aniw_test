@@ -5,10 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 import ItemHeadingPart from "UI/ItemCustomParts/ItemHeadingPart";
+import FileItemMenuBlock from "UI/FileItemMenu-Block/FileItemMenuBlock";
 import ItemCategoriesPart from "UI/ItemCustomParts/ItemCategoriesPart";
 import ItemLikesPart from "UI/ItemCustomParts/ItemLikesPart";
 import ItemDownloadsPart from "UI/ItemCustomParts/ItemDownloadsPart";
-import CommentItemLink from "UI/CommentItem-Link/CommentItemLink";
 import ItemSharePart from "UI/ItemCustomParts/ItemSharePart";
 
 function FilesListItem({ fileItem }) {
@@ -26,20 +26,22 @@ function FilesListItem({ fileItem }) {
     text,
     categories,
     likesNumber,
+    userVoteType,
     downloadsNumber,
     commentsNumber,
   } = fileItem;
 
   return (
     <div className="item-card-type flex flex-col gap-3">
-      <ItemHeadingPart
-        theme={theme}
-        avatar={avatar}
-        author={author}
-        date={date}
-        time={time}
-        itemType="file"
-      />
+      <div className="flex items-center gap-3 whitespace-nowrap text-sm">
+        <ItemHeadingPart
+          avatar={avatar}
+          author={author}
+          date={date}
+          time={time}
+        />
+        <FileItemMenuBlock theme={theme} />
+      </div>
       {isPremium && (
         <div className="inline-block self-start rounded-lg bg-custom-gold px-2 py-1 text-sm text-white">
           Premium
@@ -67,13 +69,30 @@ function FilesListItem({ fileItem }) {
         <ItemCategoriesPart categories={categories} />
       </div>
       <div className="flex items-center gap-3">
-        <ItemLikesPart theme={theme} likesNumber={likesNumber} />
-        <ItemDownloadsPart theme={theme} downloadsNumber={downloadsNumber} />
-        <CommentItemLink
+        <ItemLikesPart
           theme={theme}
-          commentsNumber={commentsNumber}
-          pathName={`/files/${id}#addComment`}
+          slice="files"
+          likesNumber={likesNumber}
+          userVoteType={userVoteType}
+          itemId={id}
         />
+        <ItemDownloadsPart theme={theme} downloadsNumber={downloadsNumber} />
+        <Link
+          href={`/files/${id}#addComment`}
+          className="button-card-type flex items-center gap-2 rounded-3xl px-2 py-1"
+        >
+          <span className="inline-block h-6 w-6">
+            <Image
+              src={
+                theme === "dark" ? "/comment-dark.svg" : "/comment-light.svg"
+              }
+              alt="Comment Icon"
+              width={50}
+              height={50}
+            />
+          </span>
+          <span className="text-sm">{commentsNumber}</span>
+        </Link>
         <ItemSharePart />
       </div>
     </div>

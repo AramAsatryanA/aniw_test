@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import FilesListItem from "./FilesListItem";
 
 function FilesList() {
-  const files = useSelector((state) => state.files);
+  const { files } = useSelector((state) => state.files);
 
   return (
     <ul className="flex flex-col gap-4">

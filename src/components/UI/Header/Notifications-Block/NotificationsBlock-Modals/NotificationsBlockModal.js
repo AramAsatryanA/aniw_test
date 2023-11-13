@@ -16,7 +16,7 @@ function NotificationsBlockModal({
         <h3 className="mr-auto text-base font-semibold">Notification</h3>
         <Link
           href="/notifications"
-          className="text-sm font-medium text-custom-gray-700 transition-all hover:font-semibold hover:text-custom-gray-900"
+          className="text-sm font-medium text-custom-gray-700 transition-all hover:text-custom-gray-900"
           onClick={onCloseNotificationsModal}
         >
           View all

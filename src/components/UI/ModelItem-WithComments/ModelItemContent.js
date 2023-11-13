@@ -3,18 +3,20 @@
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
-import ItemHeadingPart from "@/components/UI/ItemCustomParts/ItemHeadingPart";
-import ItemAdditionalPartWithButton from "@/components/UI/ItemCustomParts/ItemAdditionalPartWithButton";
-import ItemCategoriesPart from "@/components/UI/ItemCustomParts/ItemCategoriesPart";
-import ItemLikesPart from "@/components/UI/ItemCustomParts/ItemLikesPart";
+import ItemHeadingPart from "UI/ItemCustomParts/ItemHeadingPart";
+import ModelItemMenuBlock from "UI/ModelItemMenu-Block/ModelItemMenuBlock";
+import ItemAdditionalPartWithButton from "UI/ItemCustomParts/ItemAdditionalPartWithButton";
+import ItemCategoriesPart from "UI/ItemCustomParts/ItemCategoriesPart";
+import ItemLikesPart from "UI/ItemCustomParts/ItemLikesPart";
 import ItemDownloadsPart from "UI/ItemCustomParts/ItemDownloadsPart";
-import ItemCommentsPart from "@/components/UI/ItemCustomParts/ItemCommentsPart";
-import ItemSharePart from "@/components/UI/ItemCustomParts/ItemSharePart";
+import ItemCommentsPart from "UI/ItemCustomParts/ItemCommentsPart";
+import ItemSharePart from "UI/ItemCustomParts/ItemSharePart";
 
 function ModelItemContent({ modelItem }) {
   const { theme } = useTheme();
 
   const {
+    id,
     avatar,
     author,
     date,
@@ -27,20 +29,22 @@ function ModelItemContent({ modelItem }) {
     size,
     categories,
     likesNumber,
+    userVoteType,
     downloadsNumber,
     commentsNumber,
   } = modelItem;
 
   return (
     <div className="item-card-type flex flex-col gap-3">
-      <ItemHeadingPart
-        theme={theme}
-        avatar={avatar}
-        author={author}
-        date={date}
-        time={time}
-        itemType="model"
-      />
+      <div className="flex items-center gap-3 whitespace-nowrap text-sm">
+        <ItemHeadingPart
+          avatar={avatar}
+          author={author}
+          date={date}
+          time={time}
+        />
+        <ModelItemMenuBlock theme={theme} />
+      </div>
       {image && (
         <div className="inline-block w-full">
           <Image
@@ -66,7 +70,13 @@ function ModelItemContent({ modelItem }) {
         <ItemCategoriesPart categories={categories} />
       </div>
       <div className="flex items-center gap-3">
-        <ItemLikesPart theme={theme} likesNumber={likesNumber} />
+        <ItemLikesPart
+          theme={theme}
+          slice="models"
+          likesNumber={likesNumber}
+          userVoteType={userVoteType}
+          itemId={id}
+        />
         <ItemDownloadsPart theme={theme} downloadsNumber={downloadsNumber} />
         <ItemCommentsPart theme={theme} commentsNumber={commentsNumber} />
         <ItemSharePart />

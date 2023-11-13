@@ -1,4 +1,4 @@
-import ProfilePostsPageContent from "@/components/pages/ProfilePostsPage/ProfilePageContent";
+import ProfilePostsPageContent from "@/components/pages/ProfilePostsPage/ProfilePostsPageContent";
 
 export const metadata = {
   title: "Aniw App",

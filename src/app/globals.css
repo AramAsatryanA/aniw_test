@@ -63,7 +63,7 @@ button {
   @apply rounded-xl border border-custom-gray-300 bg-white py-5 dark:border-custom-black-300 dark:bg-custom-black-100;
 }
 .select-options-card-type {
-  @apply flex flex-col rounded-xl border border-custom-gray-300 bg-white py-2 dark:border-custom-black-300 dark:bg-custom-black-100;
+  @apply flex max-h-56 w-full flex-col overflow-auto rounded-xl border border-custom-gray-300 bg-white py-2 dark:border-custom-black-300 dark:bg-custom-black-100;
 }
 .button-card-type {
   @apply bg-custom-gray-100 transition-all hover:bg-custom-gray-300 dark:bg-custom-black-300 dark:hover:bg-custom-black-500;
@@ -79,6 +79,7 @@ button {
 .select-heading-button-type {
   @apply flex w-full items-center justify-between rounded-lg border border-transparent bg-custom-gray-100 px-5 py-3 text-base text-custom-gray-700 transition-all hover:border-custom-gray-500 dark:bg-custom-black-500 dark:hover:border-custom-gray-900;
 }
+
 .select-option-item-type {
   @apply w-full cursor-pointer px-6 py-3 text-base transition-all hover:bg-custom-gray-100 dark:hover:bg-custom-black-300;
 }

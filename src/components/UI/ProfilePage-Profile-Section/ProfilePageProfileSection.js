@@ -7,7 +7,7 @@ function ProfilePageProfileSection() {
   const { theme } = useTheme();
 
   return (
-    <div className="flex w-full flex-col gap-6 whitespace-nowrap border-b border-custom-gray-300 pb-6 dark:border-custom-black-300 lg:w-[220px] lg:border-none">
+    <div className="flex w-full flex-col gap-6 whitespace-nowrap border-b border-custom-gray-300 pb-6 dark:border-custom-black-300 sm:w-[220px] lg:border-none">
       <div className="flex flex-col gap-6">
         <div className="relative h-[84px] w-[84px]">
           <Image

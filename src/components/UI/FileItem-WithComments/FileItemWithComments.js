@@ -6,13 +6,22 @@ import FileItemContent from "./FileItemContent";
 import ItemComments from "@/components/UI/ItemComments/ItemComments";
 
 function FileItemWithComments({ fileId }) {
-  const files = useSelector((state) => state.files);
-  const fileItem = files.filter((file) => file.id === fileId)[0];
+  const { files, comments, replies } = useSelector((state) => state.files);
+  const fileItem = files.find((file) => file.id === fileId);
+  const fileItemComments = comments.filter(
+    (comment) => comment.fileId === fileId,
+  );
+  const fileItemReplies = replies.filter((reply) => reply.fileId === fileId);
 
   return (
     <div className="flex flex-col gap-3 lg:gap-4">
       <FileItemContent fileItem={fileItem} />
-      <ItemComments commentsList={fileItem.commentsList} itemType="file" />
+      <ItemComments
+        slice="files"
+        fileItemId={fileId}
+        comments={fileItemComments}
+        replies={fileItemReplies}
+      />
     </div>
   );
 }

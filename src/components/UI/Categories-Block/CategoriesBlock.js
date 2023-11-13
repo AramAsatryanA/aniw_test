@@ -1,12 +1,10 @@
-const categories = [
-  "Owerwatch 2",
-  "Diablo 4",
-  "World of Warcraft",
-  "Hearthstone",
-  "StarCraft 2",
-];
+"use client";
+
+import { useSelector } from "react-redux";
 
 function CategoriesBlock() {
+  const categories = useSelector((state) => state.categories);
+
   return (
     <div className="item-card-type">
       <div className="mb-4 text-sm font-semibold">Categories</div>

@@ -162,20 +162,26 @@ const usersSlice = createSlice({
   },
   reducers: {
     searchUsers(state, action) {
-      const newSearchQuery = action.payload;
-      const searchResults = state.users.filter((user) => {
+      const searchQuery = action.payload;
+
+      const searchResult = state.users.filter((user) => {
         return (
-          user.fullName.toLowerCase().includes(newSearchQuery) ||
-          user.nickName.toLowerCase().includes(newSearchQuery)
+          user.fullName.toLowerCase().includes(searchQuery) ||
+          user.nickName.toLowerCase().includes(searchQuery)
         );
       });
 
-      state.searchQuery = newSearchQuery;
-      state.searchedUsers = searchResults;
+      state.searchQuery = searchQuery;
+      state.searchedUsers = searchResult;
+    },
+
+    removeUsersSearchQuery(state) {
+      state.searchQuery = "";
     },
   },
 });
 
-export const usersSliceActions = usersSlice.actions;
+export const searchUsers = usersSlice.actions.searchUsers;
+export const removeUsersSearchQuery = usersSlice.actions.removeUsersSearchQuery;
 
 export default usersSlice.reducer;
