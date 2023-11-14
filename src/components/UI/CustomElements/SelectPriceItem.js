@@ -19,6 +19,7 @@ function SelectPriceItem() {
     <div className="flex flex-col gap-4 lg:gap-6">
       <SelectItem
         label="Price"
+        placeholder="Premium"
         options={["Premium", "Free"]}
         onChangeSelected={(option) => setSelectedPriceOption(option)}
       />
@@ -54,7 +55,7 @@ function SelectPriceItem() {
                     </span>
                   </Listbox.Button>
                   {open && (
-                    <Listbox.Options className="select-options-card-type absolute z-50 mt-1">
+                    <Listbox.Options className="select-options-card-type absolute z-50 mt-1 w-full">
                       {currencySelectOptions.map((option) => (
                         <Listbox.Option
                           key={option}

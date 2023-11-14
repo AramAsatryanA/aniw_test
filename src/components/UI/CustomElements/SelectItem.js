@@ -5,9 +5,9 @@ import { useState } from "react";
 import { Listbox } from "@headlessui/react";
 import Image from "next/image";
 
-function SelectItem({ label, options, onChangeSelected }) {
+function SelectItem({ label, placeholder, options, onChangeSelected }) {
   const { theme } = useTheme();
-  const [selected, setSelected] = useState(options[0]);
+  const [selected, setSelected] = useState(placeholder ? placeholder : label);
 
   return (
     <div className="flex flex-col justify-between gap-2 lg:flex-row lg:items-center">
@@ -38,7 +38,7 @@ function SelectItem({ label, options, onChangeSelected }) {
                 </span>
               </Listbox.Button>
               {open && (
-                <Listbox.Options className="select-options-card-type absolute z-50 mt-1">
+                <Listbox.Options className="select-options-card-type absolute z-50 mt-1 w-full">
                   {options.map((option) => (
                     <Listbox.Option
                       key={option}

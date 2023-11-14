@@ -41,7 +41,7 @@ function SelectItemCheckbox({ label, options }) {
                 </span>
               </Listbox.Button>
               {open && (
-                <Listbox.Options className="select-options-card-type absolute z-50 mt-1">
+                <Listbox.Options className="select-options-card-type absolute z-50 mt-1 w-full">
                   {options.map((option) => (
                     <Listbox.Option
                       key={option}

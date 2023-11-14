@@ -61,7 +61,7 @@ function TagsSelectItem() {
                 <span className="text-base text-custom-gray-700">Add tags</span>
               </Listbox.Button>
               {open && (
-                <Listbox.Options className="select-options-card-type absolute z-50 mt-1">
+                <Listbox.Options className="select-options-card-type absolute z-50 mt-1 w-full">
                   {selectOptions.map((tag) => (
                     <Listbox.Option
                       key={tag}
