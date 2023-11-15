@@ -1,8 +1,8 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeCurrentPage } from "@/store/users/usersSlice";
 
 import UsersListMobile from "./UsersListMobile";
 import UsersListDesktop from "./UsersListDesktop";
@@ -11,10 +11,8 @@ import UserListNavigationButton from "./UserListNavigationButton";
 function UsersList() {
   const { theme } = useTheme();
 
-  const { users, usersPerPage, searchQuery, searchedUsers } = useSelector(
-    (state) => state.users,
-  );
-  const [currentPage, setCurrentPage] = useState(1);
+  const { users, usersPerPage, currentPage, searchQuery, searchedUsers } =
+    useSelector((state) => state.users);
 
   const currentUsers = searchQuery === "" ? users : searchedUsers;
 
@@ -25,9 +23,11 @@ function UsersList() {
 
   const usersToShow = currentUsers.slice(startIndex - 1, endIndex);
 
+  const dispatch = useDispatch();
+
   function goToPageHandler(page) {
     if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
+      dispatch(changeCurrentPage(page));
     }
   }
 

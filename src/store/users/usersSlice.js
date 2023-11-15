@@ -157,6 +157,7 @@ const usersSlice = createSlice({
       },
     ],
     usersPerPage: 10,
+    currentPage: 1,
     searchQuery: "",
     searchedUsers: [],
   },
@@ -171,8 +172,13 @@ const usersSlice = createSlice({
         );
       });
 
+      state.currentPage = 1;
       state.searchQuery = searchQuery;
       state.searchedUsers = searchResult;
+    },
+
+    changeCurrentPage(state, action) {
+      state.currentPage = action.payload;
     },
 
     removeUsersSearchQuery(state) {
@@ -182,6 +188,7 @@ const usersSlice = createSlice({
 });
 
 export const searchUsers = usersSlice.actions.searchUsers;
+export const changeCurrentPage = usersSlice.actions.changeCurrentPage;
 export const removeUsersSearchQuery = usersSlice.actions.removeUsersSearchQuery;
 
 export default usersSlice.reducer;
