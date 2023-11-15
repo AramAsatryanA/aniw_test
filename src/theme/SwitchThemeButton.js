@@ -18,7 +18,7 @@ function SwitchThemeButton({ onCloseUserModal }) {
 
   return (
     <button
-      className="h-8 w-8 rounded-full bg-custom-gray-100 p-1 transition-all hover:bg-custom-gray-300 dark:bg-custom-black-500 dark:p-0"
+      className="h-8 w-8 rounded-full bg-custom-gray-100 p-1 transition-all hover:bg-custom-gray-300 dark:bg-black"
       onClick={() => {
         setTheme(theme === "dark" ? "light" : "dark");
         onCloseUserModal();
