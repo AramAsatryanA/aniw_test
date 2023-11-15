@@ -44,7 +44,9 @@ function SelectItem({ label, placeholder, options, onChangeSelected }) {
                       key={option}
                       className="select-option-item-type"
                       value={option}
-                      onClick={() => onChangeSelected(option)}
+                      onClick={() =>
+                        onChangeSelected ? onChangeSelected(option) : ""
+                      }
                     >
                       {option}
                     </Listbox.Option>

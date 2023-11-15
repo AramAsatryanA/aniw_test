@@ -32,7 +32,7 @@ function NotificationsBlock({
           width={50}
           height={50}
         />
-        <span className="absolute -right-1 -top-1 inline-block rounded-xl bg-custom-blue-100 px-1 text-xs text-white">
+        <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-xl bg-custom-blue-100 text-xs text-white">
           3
         </span>
       </button>
